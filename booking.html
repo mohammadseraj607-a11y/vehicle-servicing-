@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service | Vehicle Service At Home</title>
+    <meta name="description" content="Book professional car and bike service at your home. Fill out the form and get connected with authorized service centers.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-wrench"></i>
+                <span>Service<span class="highlight">Hub</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/booking" class="active">Book Now</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Book Your <span class="highlight">Service</span></h1>
+            <p>Fill out the form below and our team will connect you with authorized service centers</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-wrapper">
+                <!-- Booking Form -->
+                <div class="booking-form-container">
+                    <form id="bookingForm" class="booking-form">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-user"></i> Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit mobile number" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your email (optional)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-car"></i> Vehicle Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="vehicle_type">Vehicle Type *</label>
+                                    <select id="vehicle_type" name="vehicle_type" required>
+                                        <option value="">Select Vehicle Type</option>
+                                        <option value="car">Car</option>
+                                        <option value="bike">Bike / Motorcycle</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vehicle_brand">Vehicle Brand *</label>
+                                    <select id="vehicle_brand" name="vehicle_brand" required>
+                                        <option value="">Select Brand</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="vehicle_model">Vehicle Model</label>
+                                    <input type="text" id="vehicle_model" name="vehicle_model" placeholder="e.g., Swift VXi, Activa 6G">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Address Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-home"></i> Service Address</h3>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="address">Home Address *</label>
+                                    <textarea id="address" name="address" rows="3" placeholder="Enter your complete address" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pincode">Pincode *</label>
+                                    <input type="text" id="pincode" name="pincode" maxlength="6" placeholder="6-digit pincode" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <select id="city" name="city">
+                                        <option value="">Select City</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Problem Description -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-tools"></i> Problem Description</h3>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="problem_description">Describe the Issue *</label>
+                                    <textarea id="problem_description" name="problem_description" rows="4" placeholder="Describe your vehicle problem in detail. Our AI will recommend appropriate services." required></textarea>
+                                    <small class="form-hint">Be as detailed as possible - e.g., "Car makes squeaking noise when braking", "Engine not starting in the morning", etc.</small>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Recommendations -->
+                            <div id="aiRecommendations" class="ai-recommendations" style="display: none;">
+                                <div class="ai-header">
+                                    <i class="fas fa-robot"></i>
+                                    <span>AI Service Recommendations</span>
+                                </div>
+                                <div id="recommendationList" class="recommendation-list"></div>
+                            </div>
+                        </div>
+
+                        <!-- Preferred Schedule -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-calendar-alt"></i> Preferred Schedule</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="preferred_date">Preferred Date</label>
+                                    <input type="date" id="preferred_date" name="preferred_date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferred_time">Preferred Time</label>
+                                    <select id="preferred_time" name="preferred_time">
+                                        <option value="">Select Time Slot</option>
+                                        <option value="morning">Morning (9 AM - 12 PM)</option>
+                                        <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                        <option value="evening">Evening (4 PM - 7 PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-paper-plane"></i> Submit Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="booking-sidebar">
+                    <div class="sidebar-card">
+                        <h4><i class="fas fa-info-circle"></i> How It Works</h4>
+                        <ol class="steps-list">
+                            <li>
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <strong>Fill the Form</strong>
+                                    <p>Provide your details and describe the issue</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <strong>AI Analysis</strong>
+                                    <p>Our AI recommends the right service</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <strong>We Connect</strong>
+                                    <p>We connect you with nearest service center</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <strong>Doorstep Service</strong>
+                                    <p>Professional service at your home</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="sidebar-card contact-card">
+                        <h4><i class="fas fa-headset"></i> Need Help?</h4>
+                        <p>Contact our support team for assistance</p>
+                        <div class="contact-options">
+                            <a href="tel:+919876543210" class="contact-option">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 9876543210</span>
+                            </a>
+                            <a href="mailto:support@servicehub.com" class="contact-option">
+                                <i class="fas fa-envelope"></i>
+                                <span>support@servicehub.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="modal-body">
+                <h2>Booking Submitted!</h2>
+                <p>Your service booking has been successfully submitted.</p>
+                <div class="booking-id">
+                    <span>Booking ID:</span>
+                    <strong id="bookingId"></strong>
+                </div>
+                <p class="modal-note">We will contact you shortly to confirm your appointment.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-wrench"></i>
+                        <span>Service<span class="highlight">Hub</span></span>
+                    </div>
+                    <p>Professional vehicle servicing at your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/booking">Book Now</a></li>
+                        <li><a href="/about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@servicehub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ServiceHub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

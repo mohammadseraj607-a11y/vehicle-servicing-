@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Vehicle Service At Home</title>
+    <meta name="description" content="Explore our comprehensive car and bike servicing solutions. From oil change to engine repair, we cover all your vehicle needs.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-wrench"></i>
+                <span>Service<span class="highlight">Hub</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services" class="active">Services</a></li>
+                <li><a href="/booking">Book Now</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our <span class="highlight">Services</span></h1>
+            <p>Comprehensive maintenance and repair solutions for your vehicle</p>
+        </div>
+    </section>
+
+    <!-- Services List -->
+    <section class="services-list">
+        <div class="container">
+            <!-- Service Categories -->
+            <div class="service-categories">
+                <button class="category-btn active" data-category="all">All Services</button>
+                <button class="category-btn" data-category="car">Car Services</button>
+                <button class="category-btn" data-category="bike">Bike Services</button>
+                <button class="category-btn" data-category="both">Both</button>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-detail-grid">
+                <!-- General Service -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>General Service</h3>
+                        <p>Complete vehicle inspection and maintenance including oil change, filter replacement, brake check, and comprehensive system diagnostics.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 30+ Point Inspection</li>
+                            <li><i class="fas fa-check"></i> Oil & Filter Change</li>
+                            <li><i class="fas fa-check"></i> Brake System Check</li>
+                            <li><i class="fas fa-check"></i> Fluid Top-up</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Oil Change -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Oil Change</h3>
+                        <p>Engine oil and filter replacement with premium quality lubricants. We use genuine oils recommended by vehicle manufacturers.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Genuine Oil Filter</li>
+                            <li><i class="fas fa-check"></i> Premium Engine Oil</li>
+                            <li><i class="fas fa-check"></i> Oil Level Check</li>
+                            <li><i class="fas fa-check"></i> Drain Plug Gasket</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Brake Repair -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Brake Repair</h3>
+                        <p>Complete brake system service including pad replacement, disc resurfacing, caliper service, and brake fluid flush.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Brake Pad Replacement</li>
+                            <li><i class="fas fa-check"></i> Disc Resurfacing</li>
+                            <li><i class="fas fa-check"></i> Brake Fluid Flush</li>
+                            <li><i class="fas fa-check"></i> ABS Check</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Engine Repair -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Engine Repair</h3>
+                        <p>Comprehensive engine diagnostics and repair for starting issues, overheating, power loss, misfire, and other engine problems.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Engine Diagnostics</li>
+                            <li><i class="fas fa-check"></i> Spark Plug Replacement</li>
+                            <li><i class="fas fa-check"></i> Fuel System Service</li>
+                            <li><i class="fas fa-check"></i> Timing Belt</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Transmission -->
+                <div class="service-detail-card" data-category="car">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Transmission Repair</h3>
+                        <p>Transmission fluid service, gear repair, clutch system maintenance for both manual and automatic transmissions.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Fluid Change</li>
+                            <li><i class="fas fa-check"></i> Clutch Service</li>
+                            <li><i class="fas fa-check"></i> Gearbox Repair</li>
+                            <li><i class="fas fa-check"></i> Drive Shaft</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Suspension -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-truck-pickup"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Suspension Repair</h3>
+                        <p>Shock absorber replacement, strut service, wheel alignment, and steering system repairs for smooth ride.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Shock Absorbers</li>
+                            <li><i class="fas fa-check"></i> Wheel Alignment</li>
+                            <li><i class="fas fa-check"></i> Steering Service</li>
+                            <li><i class="fas fa-check"></i> Strut Assembly</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- AC Service -->
+                <div class="service-detail-card" data-category="car">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>AC Service</h3>
+                        <p>Complete air conditioning service including refrigerant refill, compressor service, cooling system repair, and heater service.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Refrigerant Refill</li>
+                            <li><i class="fas fa-check"></i> Compressor Service</li>
+                            <li><i class="fas fa-check"></i> Heater Repair</li>
+                            <li><i class="fas fa-check"></i> Cabin Filter</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Battery Service -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Battery Service</h3>
+                        <p>Battery testing, replacement, charging solutions, and alternator service to ensure reliable starting.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Battery Testing</li>
+                            <li><i class="fas fa-check"></i> Genuine Battery</li>
+                            <li><i class="fas fa-check"></i> Alternator Service</li>
+                            <li><i class="fas fa-check"></i> Jump Start</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tire Service -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-circle-notch"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Tire Service</h3>
+                        <p>Puncture repair, tire rotation, wheel balancing, and alignment services for safe driving.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Puncture Repair</li>
+                            <li><i class="fas fa-check"></i> Wheel Balancing</li>
+                            <li><i class="fas fa-check"></i> Wheel Alignment</li>
+                            <li><i class="fas fa-check"></i> Tire Rotation</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Electrical Repair -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Electrical Repair</h3>
+                        <p>Complete electrical system service including wiring repairs, light replacements, sensor service, and dashboard diagnostics.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Wiring Repairs</li>
+                            <li><i class="fas fa-check"></i> Light Replacements</li>
+                            <li><i class="fas fa-check"></i> Sensor Service</li>
+                            <li><i class="fas fa-check"></i> ECU Diagnostics</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Clutch Repair -->
+                <div class="service-detail-card" data-category="bike">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Clutch Repair</h3>
+                        <p>Clutch plate replacement, hydraulic system service, and clutch adjustment for smooth gear changes.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Clutch Plate</li>
+                            <li><i class="fas fa-check"></i> Cable Adjustment</li>
+                            <li><i class="fas fa-check"></i> Hydraulic Service</li>
+                            <li><i class="fas fa-check"></i> Pressure Plate</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Car Wash -->
+                <div class="service-detail-card" data-category="both">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-shower"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Car Wash & Detailing</h3>
+                        <p>Professional exterior washing, polishing, protective coating, and interior deep cleaning services.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Exterior Wash</li>
+                            <li><i class="fas fa-check"></i> Polishing</li>
+                            <li><i class="fas fa-check"></i> Interior Cleaning</li>
+                            <li><i class="fas fa-check"></i> Protective Coating</li>
+                        </ul>
+                        <a href="/booking" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Centers Section -->
+    <section class="service-centers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Service Network</h2>
+                <p>Authorized service centers across major cities</p>
+            </div>
+            
+            <div class="service-centers-filter">
+                <select id="filterType" class="filter-select">
+                    <option value="all">All Types</option>
+                    <option value="car">Cars</option>
+                    <option value="bike">Bikes</option>
+                </select>
+                <select id="filterBrand" class="filter-select">
+                    <option value="">All Brands</option>
+                </select>
+                <select id="filterCity" class="filter-select">
+                    <option value="">All Cities</option>
+                </select>
+            </div>
+
+            <div id="serviceCentersList" class="service-centers-grid">
+                <!-- Service centers will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need a Service Not Listed?</h2>
+                <p>Contact us for specialized repairs and custom servicing needs</p>
+                <a href="/contact" class="btn btn-primary btn-large"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-wrench"></i>
+                        <span>Service<span class="highlight">Hub</span></span>
+                    </div>
+                    <p>Professional vehicle servicing at your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/booking">Book Now</a></li>
+                        <li><a href="/about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@servicehub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ServiceHub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

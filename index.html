@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Service At Home | Professional Car & Bike Servicing</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --text-color: #111827;
+            --text-muted: #6b7280;
+            --white: #ffffff;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 0.5rem;
+            --radius-lg: 1rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: var(--text-color); background: var(--white); }
+        h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+        p { margin-bottom: 1rem; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Navigation */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: var(--white); box-shadow: var(--shadow); z-index: 1000; padding: 1rem 0; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: 700; color: var(--dark-color); }
+        .logo i { color: var(--primary-color); }
+        .logo .highlight { color: var(--primary-color); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; color: var(--gray-500); }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 500; border-radius: var(--radius); border: none; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary { background: var(--primary-color); color: var(--white); }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary { background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 8rem 0 4rem; }
+        .hero-content { max-width: 700px; color: var(--white); }
+        .hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .hero-content p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 3rem; }
+        .hero-stats { display: flex; gap: 3rem; }
+        .stat { text-align: center; }
+        .stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: var(--accent-color); }
+        .stat-label { font-size: 0.9rem; opacity: 0.9; }
+
+        /* Section Headers */
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; color: var(--dark-color); }
+        .section-header p { font-size: 1.1rem; color: var(--text-muted); }
+
+        /* Cities Section */
+        .cities-section { padding: 4rem 0; background: var(--gray-100); }
+        .cities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+        .city-tag { background: var(--white); padding: 1rem; border-radius: var(--radius); text-align: center; font-weight: 500; box-shadow: var(--shadow); transition: all 0.3s; }
+        .city-tag:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); color: var(--primary-color); }
+        .city-tag i { margin-right: 0.5rem; }
+
+        /* Services Section */
+        .services-section { padding: 4rem 0; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .service-card { background: var(--white); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); border-left: 4px solid var(--primary-color); }
+        .service-card h4 { display: flex; align-items: center; gap: 0.5rem; color: var(--dark-color); margin-bottom: 0.5rem; }
+        .service-card h4 i { color: var(--primary-color); }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+        /* Service Centers */
+        .service-centers { padding: 4rem 0; background: var(--gray-100); }
+        .filter-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filter-select { padding: 0.75rem 1.5rem; border: 1px solid var(--gray-300); border-radius: var(--radius); font-size: 1rem; background: var(--white); min-width: 200px; }
+        .center-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 1.5rem; }
+        .center-card { background: var(--white); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+        .center-card .header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
+        .center-card h4 { font-size: 1.1rem; color: var(--dark-color); margin: 0; }
+        .brand-tag { background: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; }
+        .brand-tag.bike { background: #e11d48; }
+        .center-card .location { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .center-card .services { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+        .center-card .service-tag { background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; color: var(--gray-600); }
+        .center-card .contact-btn { display: block; margin-top: 1rem; padding: 0.75rem; text-align: center; background: var(--secondary-color); color: white; border-radius: var(--radius); font-weight: 500; }
+        .center-card .contact-btn:hover { background: #059669; }
+
+        /* Booking Section */
+        .booking-section { padding: 5rem 0; }
+        .booking-form { background: var(--white); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); max-width: 700px; margin: 0 auto; }
+        .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: var(--radius); font-size: 1rem; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); }
+
+        /* Footer */
+        .footer { background: var(--dark-color); color: var(--white); padding: 3rem 0 1rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer h4 { margin-bottom: 1rem; }
+        .footer ul li { margin-bottom: 0.5rem; }
+        .footer ul li a { color: var(--gray-400); }
+        .footer ul li a:hover { color: var(--primary-color); }
+        .footer-bottom { border-top: 1px solid var(--gray-700); padding: 1rem 0; text-align: center; color: var(--gray-400); }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-buttons { flex-direction: column; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .nav-links { display: none; }
+            .center-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-wrench"></i>
+                <span>Service<span class="highlight">Hub</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cities">Cities</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#centers">Service Centers</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Vehicle Service <span class="highlight">At Your Doorstep</span></h1>
+                <p>Connect with authorized service centers for cars and bikes across 20+ cities. Get quality maintenance, repairs, and servicing at your home.</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Service</a>
+                    <a href="#centers" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i> View Centers</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-number">100+</span><span class="stat-label">Service Centers</span></div>
+                    <div class="stat"><span class="stat-number">20</span><span class="stat-label">Cities</span></div>
+                    <div class="stat"><span class="stat-number">15+</span><span class="stat-label">Vehicle Brands</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="cities-section" id="cities">
+        <div class="container">
+            <div class="section-header">
+                <h2>20 Cities Covered</h2>
+                <p>We provide doorstep service across these major cities in India</p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Delhi</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Mumbai</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Bangalore</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Chennai</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Hyderabad</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Pune</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Kolkata</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Ahmedabad</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Jaipur</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Lucknow</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Chandigarh</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Kochi</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Coimbatore</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Indore</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Bhopal</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Nagpur</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Vadodara</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Surat</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Guwahati</div>
+<div class="city-tag"><i class="fas fa-map-marker-alt"></i> Mysore</div>
+                <div class="city-tag"><i class="fas fa-map-marker-alt"></i> Darbhanga</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Types of Services Available</h2>
+                <p>Professional servicing for all your vehicle needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4><i class="fas fa-clipboard-list"></i> General Service</h4>
+                    <p>Complete vehicle inspection, oil change, filter replacement, brake check, fluid top-up, 30+ point verification</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-oil-can"></i> Oil Change</h4>
+                    <p>Engine oil replacement, oil filter change, genuine lubricants, drain plug gasket replacement</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-hand-paper"></i> Brake Repair</h4>
+                    <p>Brake pad replacement, disc resurfacing, caliper service, brake fluid flush, ABS check</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-cogs"></i> Engine Repair</h4>
+                    <p>Engine diagnostics, spark plug replacement, fuel system service, timing belt, major repairs</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-cog"></i> Transmission</h4>
+                    <p>Transmission fluid service, clutch replacement, gearbox repair, drive shaft service</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-truck-pickup"></i> Suspension</h4>
+                    <p>Shock absorber replacement, strut service, wheel alignment, steering repair</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-snowflake"></i> AC Service</h4>
+                    <p>Refrigerant refill, compressor service, heater repair, cabin filter, cooling system</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-car-battery"></i> Battery Service</h4>
+                    <p>Battery testing, genuine battery replacement, alternator service, jump start</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-bolt"></i> Electrical</h4>
+                    <p>Wiring repairs, light replacements, sensor service, ECU diagnostics, dashboard</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-circle-notch"></i>
+                    <h4><i class="fas fa-circle-notch"></i> Tire Service</h4>
+                    <p>Puncture repair, wheel balancing, wheel alignment, tire rotation, nitrogen fill</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-screwdriver"></i> Clutch Repair</h4>
+                    <p>Clutch plate replacement, cable adjustment, hydraulic service, pressure plate</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-smog"></i> Exhaust</h4>
+                    <p>Silencer replacement, catalytic converter, emission control, muffler repair</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-paint-brush"></i> Body Paint</h4>
+                    <p>Dent removal, scratch repair, bumper fix, full paint job, polish, coating</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-shower"></i> Car Wash</h4>
+                    <p>Exterior wash, interior vacuum, polishing, protective coating, detailing</p>
+                </div>
+                <div class="service-card">
+                    <h4><i class="fas fa-tools"></i> Emergency Service</h4>
+                    <p>Roadside assistance, breakdown recovery, on-spot repairs, towing service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Centers Section -->
+    <section class="service-centers" id="centers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Authorized Service Centers</h2>
+                <p>Find service centers by vehicle type and brand - Click to call directly</p>
+            </div>
+            
+            <div class="filter-container">
+                <select id="vehicleFilter" class="filter-select" onchange="filterCenters()">
+                    <option value="all">All Vehicles</option>
+                    <option value="car">Cars</option>
+                    <option value="bike">Bikes</option>
+                </select>
+                <select id="brandFilter" class="filter-select" onchange="filterCenters()">
+                    <option value="all">All Brands</option>
+                    <option value="maruti">Maruti Suzuki</option>
+                    <option value="tata">Tata Motors</option>
+                    <option value="mahindra">Mahindra</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="honda_car">Honda</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="kia">Kia</option>
+                    <option value="hero">Hero</option>
+                    <option value="honda_bike">Honda 2W</option>
+                    <option value="yamaha">Yamaha</option>
+                    <option value="tvs">TVS</option>
+                    <option value="bajaj">Bajaj</option>
+                    <option value="ktm">KTM</option>
+                    <option value="royal_enfield">Royal Enfield</option>
+                </select>
+            </div>
+
+            <div class="center-grid" id="CenterGrid">
+                <!-- Delhi Centers -->
+                <div class="center-card" data-type="car" data-brand="maruti">
+                    <div class="header">
+                        <h4>Maruti Authorized Service</h4>
+                        <span class="brand-tag">MARUTI</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Delhi - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                        <span class="service-tag">AC Service</span>
+                    </div>
+                    <a href="tel:18001025600" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-102-5600</a>
+                </div>
+
+                <div class="center-card" data-type="car" data-brand="tata">
+                    <div class="header">
+                        <h4>Tata Authorized Service</h4>
+                        <span class="brand-tag">TATA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Delhi - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                        <span class="service-tag">Electrical</span>
+                    </div>
+                    <a href="tel:18002097979" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-209-7979</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="hero">
+                    <div class="header">
+                        <h4>Hero MotoCorp Service</h4>
+                        <span class="brand-tag bike">HERO</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Delhi - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18001033444" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-103-3444</a>
+                </div>
+
+                <!-- Mumbai Centers -->
+                <div class="center-card" data-type="car" data-brand="maruti">
+                    <div class="header">
+                        <h4>Maruti Premium Workshop</h4>
+                        <span class="brand-tag">MARUTI</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Mumbai - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Suspension</span>
+                        <span class="service-tag">Transmission</span>
+                        <span class="service-tag">AC Service</span>
+                    </div>
+                    <a href="tel:18001025600" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-102-5600</a>
+                </div>
+
+                <div class="center-card" data-type="car" data-brand="tata">
+                    <div class="header">
+                        <h4>Tata Premium Service Hub</h4>
+                        <span class="brand-tag">TATA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Mumbai - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">AC Service</span>
+                        <span class="service-tag">Suspension</span>
+                        <span class="service-tag">Body Paint</span>
+                    </div>
+                    <a href="tel:18002097979" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-209-7979</a>
+                </div>
+
+                <div class="center-card" data-type="car" data-brand="toyota">
+                    <div class="header">
+                        <h4>Toyota Authorized Service</h4>
+                        <span class="brand-tag">TOYOTA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Mumbai - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Hybrid</span>
+                        <span class="service-tag">AC Service</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18001256" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-125-6</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="ktm">
+                    <div class="header">
+                        <h4>KTM Authorized Service</h4>
+                        <span class="brand-tag bike">KTM</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Mumbai - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Suspension</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18004191048" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-419-1048</a>
+                </div>
+
+                <!-- Bangalore Centers -->
+                <div class="center-card" data-type="car" data-brand="mahindra">
+                    <div class="header">
+                        <h4>Mahindra Authorized Service</h4>
+                        <span class="brand-tag">MAHINDRA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Bangalore - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Engine</span>
+                        <span class="service-tag">Transmission</span>
+                    </div>
+                    <a href="tel:18004264646" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-426-4646</a>
+                </div>
+
+                <div class="center-card" data-type="car" data-brand="hyundai">
+                    <div class="header">
+                        <h4>Hyundai Authorized Service</h4>
+                        <span class="brand-tag">HYUNDAI</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Bangalore - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Engine Repair</span>
+                        <span class="service-tag">Transmission</span>
+                        <span class="service-tag">AC Service</span>
+                    </div>
+                    <a href="tel:1800114644" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-114-644</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="royal_enfield">
+                    <div class="header">
+                        <h4>Royal Enfield Service</h4>
+                        <span class="brand-tag bike">ROYAL ENFIELD</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Bangalore - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Engine</span>
+                        <span class="service-tag">Electrical</span>
+                    </div>
+                    <a href="tel:18002100064" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-210-0064</a>
+                </div>
+
+                <!-- Chennai Centers -->
+                <div class="center-card" data-type="car" data-brand="toyota">
+                    <div class="header">
+                        <h4>Toyota Premium Workshop</h4>
+                        <span class="brand-tag">TOYOTA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Chennai - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Engine Repair</span>
+                        <span class="service-tag">Suspension</span>
+                        <span class="service-tag">Electrical</span>
+                    </div>
+                    <a href="tel:18001256" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-125-6</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="yamaha">
+                    <div class="header">
+                        <h4>Yamaha Service Center</h4>
+                        <span class="brand-tag bike">YAMAHA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Chennai - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18001020800" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-102-0800</a>
+                </div>
+
+                <!-- Hyderabad Centers -->
+                <div class="center-card" data-type="car" data-brand="kia">
+                    <div class="header">
+                        <h4>Kia Motors Service</h4>
+                        <span class="brand-tag">KIA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Electrical</span>
+                    </div>
+                    <a href="tel:18001050090" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-105-0090</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="tvs">
+                    <div class="header">
+                        <h4>TVS Motor Service</h4>
+                        <span class="brand-tag bike">TVS</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Electrical</span>
+                    </div>
+                    <a href="tel:18002587587" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-258-7587</a>
+                </div>
+
+                <!-- Pune Centers -->
+                <div class="center-card" data-type="car" data-brand="honda_car">
+                    <div class="header">
+                        <h4>Honda Cars Service</h4>
+                        <span class="brand-tag">HONDA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Pune - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">AC Service</span>
+                    </div>
+                    <a href="tel:18001034343" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-103-4343</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="bajaj">
+                    <div class="header">
+                        <h4>Bajaj Auto Service</h4>
+                        <span class="brand-tag bike">BAJAJ</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Pune - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18002332469" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-233-2469</a>
+                </div>
+
+                <!-- Kolkata Center -->
+                <div class="center-card" data-type="car" data-brand="maruti">
+                    <div class="header">
+                        <h4>Maruti Service Center</h4>
+                        <span class="brand-tag">MARUTI</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Kolkata - All Areas</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18001025600" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-102-5600</a>
+                </div>
+
+                <!-- More Cities - Additional Centers -->
+                <div class="center-card" data-type="car" data-brand="tata">
+                    <div class="header">
+                        <h4>Tata Service Center</h4>
+                        <span class="brand-tag">TATA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Jaipur, Chandigarh, Lucknow, Ahmedabad</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18002097979" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-209-7979</a>
+                </div>
+
+                <div class="center-card" data-type="car" data-brand="mahindra">
+                    <div class="header">
+                        <h4>Mahindra Service Hub</h4>
+                        <span class="brand-tag">MAHINDRA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Kochi, Coimbatore, Indore, Bhopal</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Engine</span>
+                        <span class="service-tag">Transmission</span>
+                    </div>
+                    <a href="tel:18004264646" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-426-4646</a>
+                </div>
+
+                <div class="center-card" data-type="bike" data-brand="honda_bike">
+                    <div class="header">
+                        <h4>Honda 2W Service</h4>
+                        <span class="brand-tag bike">HONDA</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> All Major Cities</div>
+                    <div class="services">
+                        <span class="service-tag">General Service</span>
+                        <span class="service-tag">Oil Change</span>
+                        <span class="service-tag">Brake Repair</span>
+                        <span class="service-tag">Engine</span>
+                    </div>
+                    <a href="tel:18001034343" class="contact-btn"><i class="fas fa-phone"></i> Call: 1800-103-4343</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book Your Service</h2>
+                <p>Fill the form and we'll connect you with the nearest service center</p>
+            </div>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" placeholder="Enter 10-digit mobile number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Vehicle Type *</label>
+                        <select required>
+                            <option value="">Select Vehicle Type</option>
+                            <option value="car">Car</option>
+                            <option value="bike">Bike / Motorcycle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Vehicle Brand *</label>
+                        <select required>
+                            <option value="">Select Brand</option>
+                            <option value="maruti">Maruti Suzuki</option>
+                            <option value="tata">Tata Motors</option>
+                            <option value="mahindra">Mahindra</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="honda">Honda</option>
+                            <option value="hyundai">Hyundai</option>
+                            <option value="kia">Kia</option>
+                            <option value="hero">Hero</option>
+                            <option value="honda_bike">Honda (Bike)</option>
+                            <option value="yamaha">Yamaha</option>
+                            <option value="tvs">TVS</option>
+                            <option value="bajaj">Bajaj</option>
+                            <option value="ktm">KTM</option>
+                            <option value="royal_enfield">Royal Enfield</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label>Home Address *</label>
+                    <textarea placeholder="Enter your complete address with landmark" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City *</label>
+                        <select required>
+                            <option value="">Select City</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="hyderabad">Hyderabad</option>
+                            <option value="pune">Pune</option>
+                            <option value="kolkata">Kolkata</option>
+                            <option value="ahmedabad">Ahmedabad</option>
+                            <option value="jaipur">Jaipur</option>
+                            <option value="lucknow">Lucknow</option>
+                            <option value="chandigarh">Chandigarh</option>
+                            <option value="kochi">Kochi</option>
+                            <option value="coimbatore">Coimbatore</option>
+                            <option value="indore">Indore</option>
+<option value="bhopal">Bhopal</option>
+                            <option value="darbhanga">Darbhanga</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pincode *</label>
+                        <input type="text" placeholder="6-digit pincode" maxlength="6" required>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label>Problem Description *</label>
+                    <textarea placeholder="Describe your vehicle problem in detail..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i> Submit Booking Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <i class="fas fa-wrench"></i>
+                        <span>Service<span class="highlight">Hub</span></span>
+                    </div>
+                    <p style="color: var(--gray-400);">Professional vehicle servicing at your doorstep across 20+ cities in India.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#cities">Cities</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#centers">Service Centers</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@servicehub.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> All Over India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ServiceHub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterCenters() {
+            const vehicleType = document.getElementById('vehicleFilter').value;
+            const brand = document.getElementById('brandFilter').value;
+            const cards = document.querySelectorAll('.center-card');
+            
+            cards.forEach(card => {
+                const type = card.dataset.type;
+                const cardBrand = card.dataset.brand;
+                
+                let show = true;
+                
+                if (vehicleType !== 'all' && type !== vehicleType) {
+                    show = false;
+                }
+                
+                if (brand !== 'all' && cardBrand !== brand) {
+                    show = false;
+                }
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your booking! We will contact you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

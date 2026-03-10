@@ -1,0 +1,134 @@
+{
+  "bike_service_centers": {
+    "hero": [
+      {"name": "Hero MotoCorp Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Battery Service"]},
+      {"name": "Hero Premium Service Hub", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension"]},
+      {"name": "Hero Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Electrical"]},
+      {"name": "Hero Quick Service Center", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "Tire Service"]},
+      {"name": "Hero Authorized Workshop", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Engine Repair", "Clutch Repair"]}
+    ],
+    "honda": [
+      {"name": "Honda Two-Wheeler Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Honda Premium Care", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension", "Electrical"]},
+      {"name": "Honda Service Express", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]},
+      {"name": "Honda Authorized Workshop", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "Tire Service"]},
+      {"name": "Honda Quick Service Hub", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Engine Repair", "Battery"]}
+    ],
+    "yamaha": [
+      {"name": "Yamaha Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Exhaust"]},
+      {"name": "Yamaha Premium Service", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension", "Electrical"]},
+      {"name": "Yamaha Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]},
+      {"name": "Yamaha Service Hub", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "Clutch"]},
+      {"name": "Yamaha Authorized Workshop", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Engine Repair", "Battery"]}
+    ],
+    "tvs": [
+      {"name": "TVS Motor Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Electrical"]},
+      {"name": "TVS Premium Service Center", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension"]},
+      {"name": "TVS Quick Service Hub", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]},
+      {"name": "TVS Authorized Workshop", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "Tire Service"]},
+      {"name": "TVS Service Express", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Engine Repair", "Clutch"]}
+    ],
+    "bajaj": [
+      {"name": "Bajaj Auto Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Bajaj Premium Care", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension", "Electrical"]},
+      {"name": "Bajaj Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]},
+      {"name": "Bajaj Service Hub", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "Clutch"]},
+      {"name": "Bajaj Authorized Workshop", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Engine Repair", "Battery"]}
+    ],
+    "ktm": [
+      {"name": "KTM Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension"]},
+      {"name": "KTM Premium Service", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension", "Electrical"]},
+      {"name": "KTM Service Hub", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]}
+    ],
+    "royal_enfield": [
+      {"name": "Royal Enfield Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Electrical"]},
+      {"name": "Royal Enfield Premium Care", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension"]},
+      {"name": "Royal Enfield Service Hub", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]}
+    ],
+    "suzuki": [
+      {"name": "Suzuki Motorcycles Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Suzuki Premium Service", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Suspension", "Electrical"]},
+      {"name": "Suzuki Service Express", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair"]}
+    ]
+  },
+  "car_service_centers": {
+    "maruti_suzuki": [
+      {"name": "Maruti Suzuki Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Maruti Suzuki Premium Workshop", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Maruti Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Maruti Authorized Service Hub", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "AC Service", "Electrical"]},
+      {"name": "Maruti Quick Service Center", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension"]}
+    ],
+    "tata": [
+      {"name": "Tata Motors Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Tata Premium Service Center", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Tata Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Tata Authorized Workshop", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "AC Service", "Electrical"]},
+      {"name": "Tata Quick Service Hub", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension"]}
+    ],
+    "mahindra": [
+      {"name": "Mahindra Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Mahindra Premium Workshop", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Mahindra Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Mahindra Service Hub", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "AC Service", "Electrical"]},
+      {"name": "Mahindra Quick Service", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension"]}
+    ],
+    "toyota": [
+      {"name": "Toyota Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical", "Hybrid Service"]},
+      {"name": "Toyota Premium Workshop", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Toyota Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Toyota Authorized Hub", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "AC Service", "Electrical"]},
+      {"name": "Toyota Quick Service", "city": "Hyderabad", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension"]}
+    ],
+    "honda": [
+      {"name": "Honda Cars Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Honda Premium Service Center", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Honda Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Honda Authorized Workshop", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "AC Service", "Electrical"]}
+    ],
+    "hyundai": [
+      {"name": "Hyundai Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Hyundai Premium Workshop", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Hyundai Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]},
+      {"name": "Hyundai Service Hub", "city": "Chennai", "services": ["General Service", "Oil Change", "Brake Repair", "AC Service", "Electrical"]}
+    ],
+    "kia": [
+      {"name": "Kia Motors Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Kia Premium Service Center", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Kia Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]}
+    ],
+    "ford": [
+      {"name": "Ford Authorized Service Center", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Ford Premium Workshop", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Ford Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]}
+    ],
+    "Volkswagen": [
+      {"name": "Volkswagen Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Volkswagen Premium Care", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Volkswagen Service Hub", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]}
+    ],
+    "skoda": [
+      {"name": "Skoda Auto Authorized Service", "city": "Delhi", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission", "AC Service", "Electrical"]},
+      {"name": "Skoda Premium Workshop", "city": "Mumbai", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Suspension", "AC Service"]},
+      {"name": "Skoda Express Service", "city": "Bangalore", "services": ["General Service", "Oil Change", "Brake Repair", "Engine Repair", "Transmission"]}
+    ]
+  },
+  "service_types": [
+    "General Service",
+    "Oil Change",
+    "Brake Repair",
+    "Engine Repair",
+    "Transmission Repair",
+    "Suspension Repair",
+    "AC Service",
+    "Electrical Repair",
+    "Battery Replacement",
+    "Tire Service",
+    "Clutch Repair",
+    "Exhaust Repair",
+    "Body Paint",
+    "Car Wash",
+    "Interior Cleaning"
+  ]
+}
+
